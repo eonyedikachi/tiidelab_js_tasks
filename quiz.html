@@ -91,7 +91,7 @@
 
     <script>
 
-// Class exercise 08/09/2020
+        // Class exercise 08/09/2020
         //    Execerise A
         function funcEx1() {
             val = prompt("Please enter a value: ");
@@ -111,24 +111,110 @@
         function funcEx3() {
             val = prompt("Select an Option: \n1. Airtime-Self \n2. Airtime-Others \n3. Data \n4. Transfer");
 
+            // Airtime for self
             if (val == 1) {
-                alert("Airtime for Self Selected");
-            } else if (val == 2) {
-                alert("Airtime for Others Selected");
-            } else if (val == 3) {
-                alert("Data Selected");
-            } else if (val == 4) {
-                alert("Transfer Selected");
-            } else {
-                alert("End");
+
+                amount = prompt("Please enter amount: ");
+                verify = confirm("Do you want to purchase airtime worth NGN" + amount + "?")
+
+                if (verify) {
+                    alert("Successful purchase of Airtime: NGN" + amount);
+                }
+                else {
+                    alert("Transaction Cancelled!");
+                }
+
             }
 
-            let ans = confirm(" Are yo sure?")
-            if (ans == true) {
-                //statement if true
+
+            // Airtime for others
+            else if (val == 2) {
+                network = prompt("Please enter third party phone number: ");
+                amount = prompt("Please enter amount: ");
+                verify = confirm("Do you want to purchase airtime worth NGN" + amount + "for " + network + "?")
+
+                if (verify) {
+                    alert("Successful purchase of Airtime: NGN" + amount + "for " + network);
+                }
+                else {
+                    alert("Transaction Cancelled!");
+                }
             }
+
+            //Data
+            else if (val == 3) {
+                network = prompt("Please select phone number: ");
+                amount = prompt("Please enter amount: ");
+
+                verify = confirm("Do you want to purchase data worth NGN" + amount + "for " + network + "?");
+                if (verify) {
+                    alert("Successful purchase of data: NGN" + amount + "for " + network);
+                }
+                else {
+                    alert("Transaction Cancelled!");
+                }
+
+            }
+
+// transfer
+            else if (val == 4) {
+
+                amount = prompt("Please enter amount: ");
+                actNum = prompt("Please enter account number: ");
+                bank = prompt("Please select bank: \n1. GTBank \n2. Zenith Bank \n3. First Bank \n4. Others , please enter bank name.");
+                
+
+                if (bank == 1) {
+
+                    verify = confirm("Do you want to transfer NGN" + amount + "for Guaranty Trust Bank to " + actNum + "?");
+                    if (verify) {
+                        alert("Successful transfer of NGN" + amount + "to " + actNum + " with Account in " + "Guaranty Trust Bank");
+                    }
+                    else {
+                        alert("Transaction Cancelled!");
+                    }
+
+                }
+
+                else if (bank == 2) {
+
+                    verify = confirm("Do you want to transfer NGN" + amount + "for Zenith Bank PLC to " + actNum + "?");
+                    if (verify) {
+                        alert("Successful transfer of NGN" + amount + "to " + actNum + " with Account in " + "Zenith Bank PLC");
+                    }
+                    else {
+                        alert("Transaction Cancelled!");
+                    }
+
+                }
+
+                else if (bank == 3) {
+
+                    verify = confirm("Do you want to transfer NGN" + amount + "for First Bank PLC to " + actNum + "?");
+                    if (verify) {
+                        alert("Successful transfer of NGN" + amount + "to " + actNum + " with Account in " + "First Bank PLC");
+                    }
+                    else {
+                        alert("Transaction Cancelled!");
+                    }
+
+                }
+
+                else {
+
+                    verify = confirm("Do you want to transfer NGN" + amount + "for " + bank + " to " + actNum + "?");
+                    if (verify) {
+                        alert("Successful transfer of NGN" + amount + "to " + actNum + " with Account in " + bank);
+                    }
+                    else {
+                        alert("Transaction Cancelled!");
+                    }
+
+                }
+            }
+
             else {
-                //statement if false
+                alert("End")
             }
         }
 
@@ -136,6 +222,12 @@
 </body>
 
 </html>
+
+
+<!-- 1. Airtime-Self
+2. Airtime-Others
+3. Data 
+4. Transfer -->
 
 
 <!-- // Exercise 1
