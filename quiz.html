@@ -23,7 +23,8 @@
 
   .qst {
     position: auto;
-    padding-top: 8%;
+    padding-top: 5%;
+    padding-bottom: 5%;
   }
 
   button {
@@ -86,7 +87,7 @@
 
   <section class="qst">
     <div class="main">
-      <h3>Do While Function Sample</h3>
+      <h3>O - Calculator</h3>
 
       <div>
         <button onclick="funcEx4()">Check it Out</button>
@@ -294,6 +295,9 @@
 
 
 // Class exercise 14/09/2020
+
+
+
     function funcEx4() {
 
       do{
@@ -345,7 +349,7 @@
         alert("Wrong Input");
       }
 
-      decide = prompt("Enter 1 to continue \nPress any key to quit:");
+      decide = prompt("Enter 1 to continue \nEnter any key to quit:");
 
       } while (decide == 1);
 
@@ -357,6 +361,8 @@
       val1 = parseInt(prompt("Please enter first number: "));
       val2 = parseInt(prompt("Please enter second number: "));
     }
+
+    yes = funcPrompt.val1;
 
     //Display the result based on the operation selected
     function funcDisplayResult(result, choice){
