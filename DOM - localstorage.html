@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM  Manipulation</title>
+</head>
+<body>
+    
+    <main>
+        <div id="users">
+
+        </div>
+        <button onclick="addUser()" class="add-btn">Add New User</button>
+    </main>
+
+
+    <script>
+        //Internal users array
+        internalUsers = new Array ( );
+        internalUsers[0] = {
+            pics : "1.jpg",
+            name : "Bankole Ayodeji",
+            phone : "1234567893",
+            email : "bankymoon@gmail.com",
+            location: "Abuja"
+        }
+        
+        internalUsers[1] = {
+            pics : "2.jpg",
+            name : "Diogu Maxwell",
+            phone : "1234567893",
+            email : "diogumaxwell@gmail.com",
+            location: "Abuja"
+        }
+        internalUsers[2] = {
+            pics : "3.jpg",
+            name : "Onyedikachi Ibeabuchi",
+            phone : "1234567893",
+            email : "onyedikachi@gmail.com",
+            location: "Abuja"
+        }
+
+        // global user variables
+        var profilePicture = "Please Enter image name :";
+        var yourName = "Please Enter your full name:";
+        var phoneNumber = "Please Enter your phone number:";
+        var emailAddress = "Please Enter your email address:";
+        var yourLocation = "Please Enter your location"
+
+        // new User function
+        function addUser() {
+            //  validation of user data
+            do {
+                profilePic = Number(prompt(profilePicture));
+            }
+            while ((Number.isNaN(profilePic)) || (!profilePic));
+            profilePic += ".jpg";
+
+            do {
+                profileName = prompt(yourName);
+            }
+            while (!profileName);
+
+            do {
+                phoneNum = Number(prompt(phoneNumber));
+            }
+            while ((Number.isNaN(phoneNum)) || (!phoneNum))
+
+            do {
+                emailAdd = prompt (emailAddress)
+            }
+            while ((!emailAdd));
+
+            do {
+                locationAdd = prompt (yourLocation)
+            }
+            while ((!locationAdd));
+            //  new user object
+            user = {
+                pics : profilePic,
+                name : profileName,
+                phone : phoneNum,
+                email : emailAdd,
+                location : yourLocation
+            }
+            // Add new Object to the old array
+            internalUsers.push(user);
+            listUsers();
+        }
+
+        //  delete user function
+        function deleteUser(index) {
+            internalUsers.splice(index, 1);
+            listUsers();
+        }
+
+        //  edit user data function
+        function editUser(index) {
+            //  validation of edit data
+            do {
+                profilePic = prompt(profilePicture, internalUsers[index].pics);
+            }
+            while (!profilePic);
+
+            do {
+                profileName = prompt(yourName, internalUsers[index].name);
+            }
+            while (!profileName);
+
+            do {
+                phoneNum = Number(prompt(phoneNumber, internalUsers[index].phone));
+            }
+            while ((Number.isNaN(phoneNum)) || (!phoneNum))
+
+            do {
+                emailAdd = prompt (emailAddress, internalUsers[index].email)
+            }
+            while ((!emailAdd));
+
+            do {
+                locationAdd = prompt (yourLocation, internalUsers[index].location)
+            }
+            while ((!locationAdd));
+            // update data to the old array object
+            internalUsers[index] = {
+            pics : profilePic,
+            name : profileName,
+            phone : phoneNum,
+            email : emailAdd,
+            location : locationAdd
+            }
+            listUsers();
+        }
+
+        // update array objects into the html document   
+        function listUsers() {
+            output = ``;
+            
+            for(i=0; i<internalUsers.length; i++){
+
+                output += 
+                `<div class="data-container">
+                <img src="${internalUsers[i].pics}" style="width:33%;">
+                <div>
+                <p><strong>Full Name</strong> : ${internalUsers[i].name}</p>
+                <p><strong>Phone Number</strong> : ${internalUsers[i].phone}</p>
+                <p><strong>Email Address</strong> : ${internalUsers[i].email}</p>
+                <p><strong>Location</strong> : ${internalUsers[i].location}</p>
+                <button onclick="deleteUser(${i})" style="background: red; color:#fff;">Delete</button>
+                <button onclick="editUser(${i})" style="background: green; color:#fff;">Edit</button>
+                </div>
+                </div>`;
+            }
+
+            document.getElementById("users").innerHTML = output;
+        }
+
+        listUsers();
+    </script>
+</body>
+</html>
