@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="solutions.js"></script>
+    
+    <script src="localStorageEx.js"></script>
+
+    <title>Document</title>
+</head>
+<body>
+
+    
+
+    <button class="tablink" onclick="openPage('Exercise1', this, 'red')">Exercise 1</button>
+<button class="tablink" onclick="openPage('Exercise2', this, 'green')" id="defaultOpen">Exercise 2</button>
+<button class="tablink" onclick="openPage('Exercise3', this, 'blue')">Exercise 3</button>
+<button class="tablink" onclick="openPage('Exercise4', this, 'orange')">Exercise 4</button>
+<button class="tablink" onclick="openPage('Exercise5', this, 'purple')">Exercise 5</button>
+
+<div id="Exercise1" class="tabcontent">
+    <section class="qst">
+        <div class="main">
+          <h3>Click for a Surprise</h3>
+    
+          <div>
+            <button class="btn" onclick="funcEx1()">Execerise One</button>
+            <button class="btn" onclick="funcEx2()">Execerise Two</button>
+          </div>
+        </div>
+      </section>
+</div>
+
+<div id="Exercise2" class="tabcontent">
+    <section class="qst">
+        <div class="main">
+          <h3>Self Service System</h3>
+    
+          <div>
+            <button class="btn" onclick="funcEx3()">Proceed</button>
+          </div>
+        </div>
+      </section> 
+</div>
+
+<div id="Exercise3" class="tabcontent">
+    <section class="qst">
+        <div class="main">
+          <h3>O - Calculator</h3>
+    
+          <div>
+            <button class="btn" onclick="funcEx4()">Check it Out</button>
+          </div>
+        </div>
+      </section>
+</div>
+
+<div id="Exercise4" class="tabcontent">
+    <section>
+        <main>
+            <div id="users">
+    
+            </div>
+            <button onclick="addUser()" class="add-btn">Add New User</button>
+        </main>
+
+        <!-- Input new company details -->
+        <button onclick="newCompany()">Add new Company</button>
+      
+        <button onclick="displayCompanyDetails()">Show Companies</button>
+        <table id="viewTable">
+          <!-- Table Structure -->
+          <tr>
+              <td>S/N</td>
+              <td>Name</td>
+              <td>Email</td>
+              <td>Location</td>
+          </tr>
+          <tbody id="rows">
+              <!-- Values will be added to the row using JS  -->
+          </tbody>
+        </section>
+</div>
+
+
+
+<div id="Exercise5" class="tabcontent">
+    <section>
+        <h3> Add a new user, it's fast and easy...</h3>
+    <input type="text" id="fullName" value="" placeholder="Full name"> <br>
+    <input type="text" id="email" placeholder="Email"> <br>
+    <input type="text" id="phone" placeholder="Phone"> <br>
+    <input type="text" id="pics" placeholder="Profile Picture"> <br>
+
+
+    <button onClick="AddNewUser()" > Add new user</button>
+
+    <p></p>
+    <p></p>
+    <div id="users"></div>
+        </section>
+</div>
+
+<script src="tabsControl.js"></script>
+<script src="tableEx.js"></script>
+
+</body>
+
+</html>
